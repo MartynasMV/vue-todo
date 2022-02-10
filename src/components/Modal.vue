@@ -1,10 +1,10 @@
 <template>
 	<div>
-		<div @click="openModal" class="app-button">Create</div>
+		<div @click="isOpen = true" class="app-button">Create</div>
 		<div class="modal" :class="{ 'is-active': isOpen }">
 			<div class="modal-content">
-				<span @click="closeModal" class="close">&times;</span>
-				<p>Modal window</p>
+				<span @click="close" class="close">&times;</span>
+				<slot /><!-- no to clear how we downloading TodoCreate.vue with this -->
 			</div>
 		</div>
 	</div>
@@ -12,16 +12,25 @@
 
 <script>
 export default {
+	/* 	props: {
+		close: {
+			type: Boolean,
+		},
+	}, */
 	data() {
 		return {
 			isOpen: false,
 		};
 	},
-	methods: {
-		openModal() {
-			this.isOpen = true;
+	watch: {
+		close(shouldBeClosed) {
+			if (shouldBeClosed && this.isOpen) {
+				this.isOpen = false;
+			}
 		},
-		closeModal() {
+	},
+	methods: {
+		close() {
 			this.isOpen = false;
 		},
 	},
@@ -59,5 +68,6 @@ export default {
 	padding: 20px;
 	border: 1px solid #888;
 	width: 80%;
+	text-align: left;
 }
 </style>
