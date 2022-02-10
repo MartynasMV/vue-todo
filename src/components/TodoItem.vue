@@ -1,11 +1,26 @@
 <template>
 	<div class="todo-item">
 		<div class="todo-item-content">
-			<div class="todo-item-content-title">Walk the doggy</div>
-			<div class="todo-item-content-description">Go for a walk</div>
+			<div class="todo-item-content-title">{{ title }}</div>
+			<div class="todo-item-content-description">{{ description }}</div>
 		</div>
 	</div>
 </template>
+
+<script>
+export default {
+	//props: ["title", "description"],
+	// using props
+	props: {
+		title: {
+			String,
+		},
+		description: {
+			String,
+		},
+	},
+};
+</script>
 
 <style scoped lang="scss">
 .todo {
