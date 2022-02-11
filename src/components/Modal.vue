@@ -4,7 +4,7 @@
 		<div class="modal" :class="{ 'is-active': isOpen }">
 			<div class="modal-content">
 				<span @click="close" class="close">&times;</span>
-				<slot /><!-- no to clear how we downloading TodoCreate.vue with this -->
+				<slot />
 			</div>
 		</div>
 	</div>

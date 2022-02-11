@@ -12,13 +12,16 @@
 					cols="30"
 					rows="5"
 					class="form-input"
-				></textarea>
-				<div class="app-error">
-					<div class="form-error">{{ formError }}</div>
+				>
+				</textarea>
+			</div>
+			<div class="app-error">
+				<div class="form-error">
+					{{ formError }}
 				</div>
 			</div>
 			<button @click="submitForm" type="button" class="app-button is-primary">
-				Create
+				Confirm
 			</button>
 		</form>
 	</Modal>

@@ -15,6 +15,7 @@
 import playground from "./playground";
 import TodoList from "@/components/TodoList.vue";
 import TodoCreate from "@/components/TodoCreate.vue";
+import store from "@/store/index.js";
 
 export default {
 	name: "App",
@@ -24,23 +25,7 @@ export default {
 	},
 	data() {
 		return {
-			todos: [
-				{
-					_id: "1",
-					title: "Walk the dog",
-					description: "Go to the park",
-				},
-				{
-					_id: "2",
-					title: "Go shopping",
-					description: "Go to the shop",
-				},
-				{
-					_id: "3",
-					title: "Learn",
-					description: "Learn coding",
-				},
-			],
+			todos: store.state.todos,
 		};
 	},
 	created() {
@@ -48,7 +33,7 @@ export default {
 	},
 	methods: {
 		createTodo(todo) {
-			this.todos.push(todo);
+			store.dispatch("createTodo", todo);
 		},
 	},
 };
@@ -100,7 +85,12 @@ $color-black: black; //just for example,
 		cursor: pointer;
 	}
 }
-
+.is-warning {
+	background-color: #ffa753;
+}
+.is-danger {
+	background-color: #ff5a5a;
+}
 .todo {
 	&-wrapper {
 		display: flex;
@@ -115,7 +105,7 @@ $color-black: black; //just for example,
 		display: flex;
 		flex-direction: column;
 		width: 400px;
-		min-height: 400px;
+		min-height: 200px;
 		background-color: #ededed;
 		border-radius: 10px;
 	}
