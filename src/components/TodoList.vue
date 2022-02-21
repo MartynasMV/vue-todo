@@ -1,6 +1,6 @@
 <template>
 	<div class="todo-list">
-		<div v-if="todos && todos.length > 0">
+		<div v-if="todos.length > 0">
 			<TodoItem
 				v-for="todo in todos"
 				:key="todo._id"

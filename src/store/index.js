@@ -33,7 +33,7 @@ const store = {
 			return state.todos;
 		},
 		createTodo(state, todo) {
-			todo._id = Math.random().toString(36).substr(2, 7);
+			todo._id = Math.random().toString(36).substing(2, 7);
 			state.todos.push(todo);
 			return state.todos;
 		},
@@ -70,3 +70,7 @@ store.dispatch = function (action, payload) {
 };
 
 export default store;
+
+/* editTodo() {
+	store.dispatch("updateTodo", { ...this.todo });
+	this.editMode = false; */
