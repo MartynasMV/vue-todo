@@ -12,11 +12,6 @@
 
 <script>
 export default {
-	/* 	props: {
-		close: {
-			type: Boolean,
-		},
-	}, */
 	data() {
 		return {
 			isOpen: false,

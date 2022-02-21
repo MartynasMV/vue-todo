@@ -12,11 +12,9 @@
 </template>
 
 <script>
-import playground from "./playground";
 import TodoList from "@/components/TodoList.vue";
 import TodoCreate from "@/components/TodoCreate.vue";
 import store from "@/store/index.js";
-
 export default {
 	name: "App",
 	components: {
@@ -29,7 +27,7 @@ export default {
 		};
 	},
 	created() {
-		playground();
+		this.todos = store.dispatch("initStore");
 	},
 	methods: {
 		createTodo(todo) {
